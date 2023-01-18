@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="model/kanban-icon.pnj.png" type="image/x-icon">
+        <title>SAPUI5 Kanban</title>
+        <script
+            id="sap-ui-bootstrap"
+            src="resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_fiori_3_dark"
+            data-sap-ui-resourceroots='{"kanban2": "./"}'
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+            data-sap-ui-async="true"
+			data-sap-ui-preload="async"
+            data-sap-ui-frameOptions="trusted"
+        ></script>
+    </head>
+    <body class="sapUiBody">
+        <div
+            data-sap-ui-component
+            data-name="kanban2"
+            data-id="container"
+            data-settings='{"id" : "kanban-2"}'
+        ></div>
+    </body>
+</html>

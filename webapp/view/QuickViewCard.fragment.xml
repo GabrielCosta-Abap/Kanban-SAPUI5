@@ -1,0 +1,42 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:control="kanban2.controller.DragNDrop.controls"
+ xmlns:dnd="sap.ui.core.dnd" 
+>
+	<!-- <control:Panel
+		width="auto"> -->
+		<control:QuickViewCard
+			navigate=".onNavigate"
+			afterNavigate=".onAfterNavigate">
+
+			<control:dragDropConfig>
+				<dnd:DragInfo drag="onDrop"/>
+			</control:dragDropConfig>
+
+			<QuickViewPage
+				header="header"
+                width="200%"
+				title="{CategoryName}"
+				titleUrl="titleUrl"
+				description="{Description}">
+				<avatar>
+					<Avatar
+						src="icon"
+						displayShape="displayShape"
+					/>
+				</avatar>
+				<QuickViewGroup heading="{Products>/ProductName}">
+					<QuickViewGroupElement
+						label="label"
+						value="value"
+						url="url"
+						type="elementType"
+						pageLinkId="pageLinkId"
+						emailSubject="emailSubject"
+						target="target" />
+				</QuickViewGroup>
+			</QuickViewPage>
+		</control:QuickViewCard>
+	<!-- </control:Panel> -->
+</core:FragmentDefinition>

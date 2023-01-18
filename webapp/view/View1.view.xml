@@ -1,0 +1,155 @@
+<mvc:View
+    controllerName="kanban2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="false"
+    xmlns="sap.m"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:dnd-grid="sap.f.dnd"
+	xmlns:control="kanban2.controller.DragNDrop.controls"
+	xmlns:core="sap.ui.core"
+	class="sapUiSizeCompact"
+	xmlns:tnt="sap.tnt"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="SAPUI5 Kanban">
+					
+					<tnt:ToolHeader>
+						<Button icon="sap-icon://create-form" text="Novo"/>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://lightbulb" press="onLightPress">
+							
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>		
+
+					<content> 
+					<HBox id="Kanban" >
+						<Panel id="panelForGridList" backgroundDesign="Transparent" >
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="To Do"/>
+								</Toolbar>
+							</headerToolbar>
+
+								<f:GridList
+									id="gridList"
+									items="{/items}">
+
+									<f:dragDropConfig>
+										<dnd:DragInfo sourceAggregation="items" />
+										<dnd-grid:GridDropInfo targetAggregation="items" dropPosition="Between" dropLayout="Horizontal" drop="onDrop" />
+									</f:dragDropConfig>
+
+									<f:customLayout>
+										<grid:GridBoxLayout boxMinWidth="17rem" />
+									</f:customLayout>
+
+									<f:GridListItem
+										highlight="{highlight}"
+										type="{type}"
+										detailPress="onCardPress"
+										unread="{unread}">
+										<VBox height="100%">
+										
+											<control:QuickViewCard
+												afterNavigate=".onAfterNavigate">
+
+												<QuickViewPage
+													header="header"
+													title="{title}"
+													description="{subtitle}">
+													<avatar>
+														<Avatar	src="{img}" displayShape="displayShape"/>
+													</avatar>
+
+													<QuickViewGroup heading="{Products>/ProductName}">
+														<QuickViewGroupElement
+															label="Prazo em dias"
+															value="{counter}"
+															url="google.com"
+															pageLinkId="pageLinkId"
+															emailSubject="emailSubject"
+															target="target" />
+													</QuickViewGroup>
+												</QuickViewPage>
+											</control:QuickViewCard>
+										</VBox>
+									</f:GridListItem>
+								</f:GridList>
+
+						</Panel>
+
+						<Panel id="panelForGridList2" backgroundDesign="Transparent" width="300px">
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="Doing"/>
+								</Toolbar>
+							</headerToolbar>
+
+							<f:GridList
+								id="gridList2">
+
+								<f:dragDropConfig>
+									<dnd:DragInfo sourceAggregation="items" />
+									<dnd-grid:GridDropInfo targetAggregation="items" dropPosition="Between" dropLayout="Horizontal" drop="onDrop" />
+								</f:dragDropConfig>
+
+							</f:GridList>
+
+						</Panel>
+						
+						<Panel id="panelForGridList3" backgroundDesign="Transparent" width="300px">
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="Test"/>
+								</Toolbar>
+							</headerToolbar>
+
+							<f:GridList
+								id="gridList3">
+
+								<f:dragDropConfig>
+									<dnd:DragInfo sourceAggregation="items" />
+									<dnd-grid:GridDropInfo targetAggregation="items" dropPosition="Between" dropLayout="Horizontal" drop="onDrop" />
+								</f:dragDropConfig>
+
+							</f:GridList>
+						</Panel>
+						<Panel id="panelForGridList4" backgroundDesign="Transparent" width="300px">
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="Done"/>
+								</Toolbar>
+							</headerToolbar>
+
+							<f:GridList
+								id="gridList4">
+
+								<f:dragDropConfig>
+									<dnd:DragInfo sourceAggregation="items" />
+									<dnd-grid:GridDropInfo targetAggregation="items" dropPosition="Between" dropLayout="Horizontal" drop="onDrop" />
+								</f:dragDropConfig>
+
+							</f:GridList>
+						</Panel>
+						</HBox >
+					</content>
+
+					<footer>
+						<Bar>
+							<contentMiddle>
+								<Button text="Criado por Gabriel da Costa Rosa" press="onPressFooterButton"></Button>
+							</contentMiddle>
+						</Bar>
+					</footer>					
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

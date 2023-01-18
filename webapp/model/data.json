@@ -1,0 +1,30 @@
+{
+	"items": [
+		{
+			"title": "Dominar o mundo",
+			"subtitle": "Gabriel da Costa",
+			"counter": 5,
+			"highlight": "Error",
+			"unread": true,
+			"type": "DetailAndActive",
+			"img": "../model/foto.PNG"
+		},
+		{
+			"title": "Recuperar o pântano",
+			"subtitle": "Shrek da Silva",
+			"counter": 15,
+			"highlight": "Warning",
+			"type": "DetailAndActive",
+			"img": "../model/shrek.png"
+		},
+		{
+			"title": "Roubar a lua",
+			"subtitle": "Gru Gonçalves",
+			"type": "DetailAndActive",
+			"counter": 15734,
+			"busy": true,
+			"img": "../model/gru.png",
+			"highlight": "Success"
+		}
+	]
+}

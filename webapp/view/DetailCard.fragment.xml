@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:control="kanban2.controller.View1"
+ xmlns:dnd="sap.ui.core.dnd" 
+ xmlns:f="sap.ui.layout.form"
+ xmlns:l="sap.ui.layout"
+ xmlns:upload="sap.m.upload"
+ xmlns:mvc="sap.ui.core.mvc">
+
+    <Dialog id="openDialog" title="Tarefa">
+		<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="{title}"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <core:Title text="Visão detalhada"/>
+
+				<Label text="Descrição da tarefa" />
+				<TextArea value=""></TextArea>
+
+				<Label text="Requisitos" />
+				<TextArea value=""></TextArea>
+
+				<Label text="Responsável" />
+				<Input value=""></Input>
+
+				<Label text="Prazo em dias" />
+				<Input value=""></Input>
+
+				<Label text="Criticidade" />
+				<Select id="criticidade" selectedKey="bad">
+					<items>
+						<core:Item text="Horrível de crítico" key="bad"/>
+						<core:Item text="de boas até" key="normal1"/>
+						<core:Item text="Bão" key="good"/>
+					</items>
+				</Select>
+				
+                <core:Title text="Anexos"/>
+                <upload:UploadSet
+                        id="UploadSet"
+                        instantUpload="true"
+                        showIcons="true"
+                        uploadEnabled="true"
+                        terminationEnabled="true"
+                        fileTypes="txt,doc,png"
+                        maxFileNameLength="30"
+                        maxFileSize="200"
+                        mediaTypes="text/plain,application/msword,image/jpeg"
+                        uploadUrl="../../../../upload"
+                        uploadButtonInvisible="false"
+                        fileRenamed="onFileRenamed"
+                        sameFilenameAllowed="false"
+                        items="{path: '/items', templateShareable: false}">
+                    <upload:items>
+                        <upload:UploadSetItem
+                                fileName="{fileName}"
+                                mediaType="{mediaType}"
+                                url="{url}"
+                                thumbnailUrl="{thumbnailUrl}"
+                                attributes="{path: 'attributes', templateShareable: false}"
+                                markers="{path: 'markers', templateShareable: false}"
+                                statuses="{path: 'statuses', templateShareable: false}"
+                                uploadState="{uploadState}">
+                            <upload:attributes>
+                                <ObjectAttribute
+                                        title="{title}"
+                                        text="{text}"
+                                        active="{active}"/>
+                            </upload:attributes>
+                            <upload:markers>
+                                <ObjectMarker
+                                        type="{type}"
+                                        visibility="{visibility}"/>
+                            </upload:markers>
+                            <upload:statuses>
+                                <ObjectStatus
+                                        title="{title}"
+                                        text="{text}"
+                                        state="{state}"
+                                        icon="{icon}"
+                                        active="{active}"/>
+                            </upload:statuses>
+                        </upload:UploadSetItem>
+                    </upload:items>
+                </upload:UploadSet>
+
+			</f:content>
+		</f:SimpleForm>
+        <beginButton>
+            <Button text="Deletar Card" press=".closeDialog" type="Reject" icon="sap-icon://delete"/>
+        </beginButton>
+        <endButton>
+            <Button text="Salvar" press=".closeDialog" type="Success"/>
+        </endButton>
+    </Dialog>
+
+</core:FragmentDefinition>
