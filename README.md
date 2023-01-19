@@ -1,3 +1,13 @@
+O que ainda falta fazer no kanban sapui5.
+- Binding com informações no detalhamento do card. 
+- Desenvolver modelagem de dados real.
+- Desenvolver crud de informações no card.
+- Funcionalidade de criar novo card.
+- Funcionalidade de criar uma nova lista.
+
+
+
+
 ## Application Details
 |               |
 | ------------- |
